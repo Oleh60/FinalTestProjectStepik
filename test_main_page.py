@@ -1,9 +1,10 @@
-
-class MainBase():
+from .base_page import BasePage
+class MainBase(base_page.BasePage):
 
     def __init__(self,browser,link):
         self.browser = browser
         self.link = link
+        self.base_page =
 
     def test_guest_can_go_to_login_page(self,browser,link):
     link = "http://selenium1py.pythonanywhere.com/"
