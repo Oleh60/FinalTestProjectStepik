@@ -17,3 +17,12 @@ class StafAddLocators():
 
     book1_add_locator = (By.XPATH,"//button[@class = 'btn btn-lg btn-primary btn-add-to-basket']")
 
+class AddingMessageLocator():
+    add_massege_locator = (By.XPATH,"//div[@id = 'messages'] /div/div/strong")
+
+
+class BasePageLocators():
+    LOGIN_LINK = (By.XPATH, '//a[@id = "login_link"]')
+    # LOGIN_LINK_INVALID = (By.XPATH, '//*[@id ="login_link_inc"]')
+
+
