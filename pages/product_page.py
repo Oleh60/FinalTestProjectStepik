@@ -1,6 +1,6 @@
 from .base_page import BasePage
 from selenium.webdriver.common.by import By
-from .locators import AddingMessageLocator, BasePageLocators
+from .locators import AddingMessageLocator, BasePageLocators, BasketLocator
 from selenium.common.exceptions import NoAlertPresentException
 
 import math
@@ -35,3 +35,12 @@ class ProductPage(BasePage):
         self.go_to_login_page()
         login_form = self.is_element_present(By.XPATH, '//form[@id = "login_form"]')
         assert login_form == True, "There is no login form"
+
+
+    def see_product_in_basket_opened_from_main_page(self):
+        basket = self.browser.find_element(*BasketLocator.BASKET_LINK)
+        basket.click()
+        basket_empty_message = self.browser.find_element(By.XPATH,'//div[@id = "content_inner"]/p').text
+
+        assert self.is_not_element_present(By.XPATH,'//div[@class = "basket-title hidden-xs"]'),"some products present"
+        assert basket_empty_message.find("Ваш кошик пустий.") >= 0, "Your message is no correct"

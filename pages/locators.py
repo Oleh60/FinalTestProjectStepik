@@ -25,4 +25,9 @@ class BasePageLocators():
     LOGIN_LINK = (By.XPATH, '//a[@id = "login_link"]')
     # LOGIN_LINK_INVALID = (By.XPATH, '//*[@id ="login_link_inc"]')
 
+class BasketLocator():
+    BASKET_LINK = (By.XPATH,'//a[@class ="btn btn-default"]')
+
+
+
 

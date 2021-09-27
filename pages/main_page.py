@@ -1,19 +1,23 @@
 from .base_page import BasePage
 from selenium.webdriver.common.by import By
 from .login_page import LoginPage
+from .locators import BasketLocator
+
 
 
 class MainPage(BasePage):
-    class MainPage(BasePage):
-        def __init__(self, *args, **kwargs):
-            super(MainPage, self).__init__(*args, **kwargs)
+    def see_product_in_basket_opened_from_main_page(self):
+        basket = self.browser.find_element(*BasketLocator.BASKET_LINK)
+        basket.click()
+        basket_empty_message = self.browser.find_element(By.XPATH,'//div[@id = "content_inner"]/p').text
 
-    # def go_to_login_page(self):
-    #     login_link = self.browser.find_element(By.CSS_SELECTOR, "#login_link")
-    #     login_link.click()
-    #     return LoginPage(browser=self.browser, url=self.browser.current_url)
-    #
-    # def should_be_login_link(self):
-    #     # self.browser.find_element(By.CSS_SELECTOR, "#login_link")
-    #     assert self.is_element_present(By.CSS_SELECTOR,"#login_link"), "Login link is not presented"
+        assert self.is_not_element_present(By.XPATH,'//div[@class = "basket-title hidden-xs"]'),"some products present"
+        assert basket_empty_message.find("Ваш кошик пустий.") >= 0, "Your message is no correct"
+
+
+
+
+
+
+
 
