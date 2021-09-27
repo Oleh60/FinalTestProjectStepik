@@ -1,7 +1,6 @@
 from .pages.product_page import ProductPage
 import pytest
-from .pages.base_page import BasePage
-from selenium.common.exceptions import NoAlertPresentException
+
 
 @pytest.mark.parametrize('link', ["http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0",
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer1",
@@ -15,7 +14,7 @@ from selenium.common.exceptions import NoAlertPresentException
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer8",
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer9"])
 def test_guest_can_add_product_to_basket(browser,link):
-    # link = f"http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
+    # link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
     page = ProductPage(browser,link)
     page.open()
     page.promo_product_page()
