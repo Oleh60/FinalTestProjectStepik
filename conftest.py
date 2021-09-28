@@ -1,18 +1,10 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-import time
 
 
-# @pytest.fixture(scope="function")
-# def browser():
-#     print("\nstart browser for test..")
-#     browser = webdriver.Chrome("C:\\CD\\chromedriver.exe")
-#     browser.maximize_window()
-#     browser.implicitly_wait(8)
-#     yield browser1
-#     print("\nquit browser..")
-#     browser1.quit()
+
+
 
 
 def pytest_addoption(parser):
